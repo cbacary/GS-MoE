@@ -1,0 +1,53 @@
+[project]
+name = "GS-MoE"
+version = "0.2.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "accelerate>=1.11.0",
+    "cma>=4.4.4",
+    # "datasets>=4.4.1",
+    "datasets==3.6.0",
+    # "datasets<3.00",
+    # "datasets==2.19.0",
+    # "flash-attn>=2.8.3",
+    "huggingface-hub>=0.36.0",
+    "ipykernel>=7.3.0",
+    "lm-eval[hf]>=0.4.9.2",
+    # "lm-eval[hf]==0.4.2",
+    "matplotlib>=3.10.8",
+    "nbformat>=5.10.4",
+    "numpy>=2.3.4",
+    "optuna>=4.8.0",
+    "plotly>=6.6.0",
+    "psutil>=7.2.1",
+    "safetensors>=0.6.2",
+    "seaborn>=0.13.2",
+    "torch>=2.9,<3.0",
+    # "transformers[torch]>=4.57,<4.57.6", ### For Qwen2-57B-A14B
+    # "transformers[torch]>=4.54.0,<5.0.0", ### For Mixtral-8x7B
+    "transformers[torch]>=4.53.0,<4.54.0", ### For deepseek
+    # "transformers[torch]>=4.42.4,<4.53", ### For other
+]
+
+[tool.ruff.lint]
+select = [
+    "F6",  # Invalid syntax and logic (e.g., duplicate dict keys)
+    "F7",  # Control flow errors (e.g., `break` or `return` outside a loop/function)
+    "F82", # Undefined names and variables (raises NameError/UnboundLocalError)
+    "F9",  # Raising NotImplemented instead of NotImplementedError
+    "PLE", # Pylint Errors (fatal bugs like await outside async, yield in __init__)
+]
+
+# Ensure style rules are disabled
+ignore = []
+
+# Remove if not on b200:
+[tool.uv.sources]
+torch = { index = "pytorch-cu128" }
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
