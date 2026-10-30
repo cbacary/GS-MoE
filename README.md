@@ -1,6 +1,6 @@
 # GS-MoE
 
-GS-MoE is a Mixture-of-Experts Large Langguage Model compression method. Preprint is available on ['arxiv'](https://arxiv.org/abs/2610.32009)
+GS-MoE is a Mixture-of-Experts Large Langguage Model compression method. Preprint is available on [arxiv](https://arxiv.org/abs/2610.32009)
 
 ## 1. Set-up
 
